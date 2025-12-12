@@ -1,0 +1,336 @@
+ <!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CAP STYLE - Gorras</title>
+
+  <style>
+    :root{
+      font-family: Arial, Helvetica, sans-serif;
+      color:#e0e0e0;
+      --naranja:#ff7b00;
+      --neon:#00ff66;
+      --negro:#050505;
+    }
+
+    body{
+      margin:0;
+      padding:0;
+      background:var(--negro);
+      overflow-x:hidden;
+    }
+
+    /* ------------------ HEADER ------------------ */
+    header{
+      background:#0a0a0a;
+      color:var(--neon);
+      padding:22px 10px;
+      box-shadow:0 0 12px var(--neon);
+      text-align:center;
+      position:relative;
+      z-index:10;
+    }
+
+    header h1{
+      margin:0;
+      letter-spacing:4px;
+      text-shadow:0 0 15px var(--neon);
+    }
+
+    /* ------------------ NAV ------------------ */
+    nav{
+      display:flex;
+      justify-content:center;
+      gap:16px;
+      padding:14px;
+      background:#111;
+      box-shadow:0 0 10px var(--naranja);
+      flex-wrap:wrap;
+      position:relative;
+      z-index:10;
+    }
+
+    nav a{
+      color:#fff;
+      text-decoration:none;
+      padding:10px 16px;
+      border-radius:8px;
+      transition:0.2s;
+      font-weight:bold;
+      display:inline-block;
+    }
+
+    nav a.active, 
+    nav a:hover{
+      background:var(--naranja);
+      color:#000;
+      box-shadow:0 0 12px var(--naranja);
+    }
+
+    /* ------------------ SECTIONS ------------------ */
+    main{
+      max-width:1000px;
+      margin:20px auto;
+      padding:0 20px;
+      position:relative;
+      z-index:10;
+    }
+
+    section{
+      display:none;
+      outline:none;
+    }
+    section.active{
+      display:block;
+      animation:show 0.35s ease;
+    }
+
+    @keyframes show{
+      from{opacity:0; transform:translateY(6px)} 
+      to{opacity:1; transform:translateY(0)}
+    }
+
+    /* ------------------ CARDS & IMÁGENES ------------------ */
+
+    .hero, .card, form{
+      background:#0f0f0f;
+      padding:26px;
+      border-radius:12px;
+      box-shadow:0 0 14px var(--naranja);
+      color:#ffffff;
+      border:1px solid var(--neon);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+      gap:18px;
+    }
+
+    .card{
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:scale(1.05);
+      box-shadow:0 0 18px var(--neon);
+      border-color:var(--naranja);
+    }
+
+    .card img{
+      width:100%;
+      height:160px;
+      border-radius:10px;
+      background:#111;
+      border:2px solid var(--naranja);
+      object-fit:cover;
+      animation:glowPulse 2.2s infinite alternate ease-in-out;
+    }
+
+    @keyframes glowPulse{
+      0%{ box-shadow:0 0 6px var(--naranja); }
+      100%{ box-shadow:0 0 16px var(--neon); }
+    }
+
+    .card h3{
+      text-shadow:0 0 10px var(--neon);
+      margin:10px 0 4px;
+    }
+
+    /* ------------------ FORM ------------------ */
+    form label{display:block; margin-top:10px}
+
+    input, textarea{
+      width:100%;
+      padding:10px;
+      margin-top:8px;
+      border:1px solid var(--naranja);
+      border-radius:8px;
+      background:#111;
+      color:#fff;
+      box-shadow:0 0 10px var(--naranja);
+    }
+
+    button{
+      margin-top:14px;
+      padding:12px 18px;
+      border:0;
+      border-radius:8px;
+      background:var(--neon);
+      color:#000;
+      font-weight:bold;
+      box-shadow:0 0 10px var(--neon);
+      cursor:pointer;
+    }
+
+    /* MAPA */
+    .mapa-box{
+      margin-top:25px;
+      border-radius:12px;
+      overflow:hidden;
+      border:2px solid var(--neon);
+      box-shadow:0 0 14px var(--neon);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>CAP STYLE</h1>
+    <nav>
+      <a href="#" data-target="inicio" class="active">Inicio</a>
+      <a href="#" data-target="catalogo">Catálogo</a>
+      <a href="#" data-target="accesorios">Accesorios</a>
+      <a href="#" data-target="contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- INICIO -->
+    <section id="inicio" class="active">
+      <div class="hero">
+        <h2 style="color:var(--neon);">Bienvenido a CAP STYLE</h2>
+        <p style="color:#ccc;">Gorras modernas, urbanas y estilo callejero. Explora nuestros modelos.</p>
+
+        <div class="grid">
+          <div class="card"><img src="" alt="Gorra Urbana"><h3>Gorra Urbana</h3></div>
+          <div class="card"><img src="" alt="Gorra Negra Premium"><h3>Gorra Negra Premium</h3></div>
+          <div class="card"><img src="" alt="Street Style"><h3>Street Style</h3></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATÁLOGO -->
+    <section id="catalogo">
+      <h2 style="color:var(--naranja);">Catálogo de Gorras</h2>
+
+      <div class="grid">
+        <div class="card"><img src=""><h3>Gorra Clásica</h3><p>Precio: $15</p></div>
+        <div class="card"><img src=""><h3>Gorra Snapback</h3><p>Precio: $18</p></div>
+        <div class="card"><img src=""><h3>Gorra Trucker</h3><p>Precio: $20</p></div>
+        <div class="card"><img src=""><h3>Gorra Beanie</h3><p>Precio: $12</p></div>
+        <div class="card"><img src=""><h3>Graffiti Style</h3><p>Precio: $22</p></div>
+        <div class="card"><img src=""><h3>Street Premium</h3><p>Precio: $25</p></div>
+
+        <div class="card"><img src=""><h3>Gorra Glow Verde</h3><p>Precio: $23</p></div>
+        <div class="card"><img src=""><h3>Gorra Fire Naranja</h3><p>Precio: $24</p></div>
+        <div class="card"><img src=""><h3>Gorra Blackout</h3><p>Precio: $19</p></div>
+        <div class="card"><img src=""><h3>Urban Logo Cap</h3><p>Precio: $26</p></div>
+        <div class="card"><img src=""><h3>Street Neon Edition</h3><p>Precio: $30</p></div>
+        <div class="card"><img src=""><h3>Dark Mode Cap</h3><p>Precio: $28</p></div>
+      </div>
+    </section>
+
+    <!-- ACCESORIOS -->
+    <section id="accesorios">
+      <h2 style="color:var(--neon);">Accesorios</h2>
+
+      <div class="grid">
+        <div class="card"><img src=""><h3>Parche bordado</h3><p>Añade estilo</p></div>
+        <div class="card"><img src=""><h3>Correa ajustable</h3><p>Repuesto snapback</p></div>
+        <div class="card"><img src=""><h3>Bolsa protectora</h3><p>Transporta tus gorras</p></div>
+        <div class="card"><img src=""><h3>Sticker Pack</h3><p>Decoraciones urbanas</p></div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+      <h2 style="color:var(--naranja);">Contacto</h2>
+
+      <form onsubmit="event.preventDefault(); alert('Gracias — formulario simulado');">
+        <label>Nombre<input type="text" required></label>
+        <label>Correo<input type="email" required></label>
+        <label>Mensaje<textarea rows="4"></textarea></label>
+        <button type="submit">Enviar</button>
+      </form>
+
+      <!-- MAPA MINIATURA -->
+      <div class="mapa-box">
+        <iframe 
+          width="100%" 
+          height="250" 
+          style="border:0;"
+          loading="lazy" 
+          allowfullscreen
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d997.5378974328073!2d-79.204!3d-3.993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMy45OTMgUyA3OS4yMDQgVw!5e0!3m2!1ses!2sec!4v0000000000">
+        </iframe>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- SCRIPT DE NAVEGACIÓN -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const links = document.querySelectorAll('nav a');
+      const sections = document.querySelectorAll('main section');
+
+      links.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+
+          links.forEach(l=> l.classList.remove('active'));
+          link.classList.add('active');
+
+          const target = link.dataset.target;
+
+          sections.forEach(s=> {
+            s.classList.toggle('active', s.id === target);
+          });
+        });
+      });
+    });
+  </script>
+
+  <!-- CANVAS EFECTOS -->
+  <canvas id="particles"></canvas>
+  <canvas id="smoke"></canvas>
+
+  <!-- SCRIPT EFECTOS -->
+  <script>
+    /* ------------------ PARTICULAS ------------------ */
+    const canvasP = document.getElementById('particles');
+    const ctxP = canvasP.getContext('2d');
+
+    function resizeP(){
+      canvasP.width = innerWidth;
+      canvasP.height = innerHeight;
+    }
+    resizeP();
+
+    addEventListener('resize', resizeP);
+
+    let particles = Array.from({length:80}, ()=>({
+      x: Math.random()*innerWidth,
+      y: Math.random()*innerHeight,
+      r: Math.random()*2+1,
+      vx: (Math.random()-.5)*0.4,
+      vy: (Math.random()-.5)*0.4
+    }));
+
+    function animateParticles(){
+      ctxP.clearRect(0,0,canvasP.width,canvasP.height);
+      ctxP.fillStyle = 'rgba(0,255,100,0.8)';
+
+      particles.forEach(p=>{
+        ctxP.beginPath();
+        ctxP.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctxP.fill();
+
+        p.x+=p.vx;
+        p.y+=p.vy;
+
+        if(p.x<0||p.x>innerWidth) p.vx*=-1;
+        if(p.y<0||p.y>innerHeight) p.vy*=-1;
+      });
+
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+  </script>
+
+</body>
+</html>
